@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malayalam Quest</title>
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/screens.css">
+  <link rel="stylesheet" href="styles/exercises.css">
+</head>
+<body>
+
+  <!-- Home -->
+  <section id="screen-home" data-route="/">
+    <h1>🗺️ Malayalam Quest</h1>
+    <p style="color:var(--text-muted)">Learn the script. Conquer the language.</p>
+    <input type="text" id="name-input" placeholder="Enter your name…" maxlength="24" autocomplete="off">
+    <button class="btn-primary" id="begin-btn">Begin Adventure ⚔️</button>
+  </section>
+
+  <!-- Adventure Map -->
+  <section id="screen-map" data-route="/map" hidden>
+    <div class="player-header">
+      <span class="node-icon">⚔️</span>
+      <span class="name" id="map-player-name"></span>
+      <span class="title-label" id="map-player-title"></span>
+      <span class="xp-label" id="map-player-xp"></span>
+    </div>
+    <div class="xp-bar-wrap" style="margin-bottom:20px;">
+      <div class="xp-bar-fill" id="map-xp-bar" style="width:0%"></div>
+    </div>
+    <div class="map-path" id="map-path"></div>
+  </section>
+
+  <!-- Chapter Overview -->
+  <section id="screen-chapter" data-route="/chapter/:id" hidden>
+    <button class="btn-secondary" onclick="history.back()" style="margin-bottom:12px;">← Map</button>
+    <div class="chapter-header">
+      <h2 id="chapter-title"></h2>
+      <p class="chapter-lore" id="chapter-lore"></p>
+    </div>
+    <div id="chapter-badge" style="margin-bottom:16px;"></div>
+    <div class="lesson-list" id="lesson-list"></div>
+  </section>
+
+  <!-- Exercise Runner -->
+  <section id="screen-exercise" data-route="/exercise/:chapterId/:lessonId" hidden>
+    <button class="btn-secondary" id="exercise-back-btn" style="margin-bottom:12px;">← Chapter</button>
+    <div class="exercise-phase-bar" id="phase-bar"></div>
+    <div class="exercise-area" id="exercise-area"></div>
+  </section>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
