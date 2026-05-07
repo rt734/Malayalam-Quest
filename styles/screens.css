@@ -1,0 +1,42 @@
+/* All screens hidden by default; router shows active one */
+[data-route] { display: none; padding: 16px; max-width: 600px; margin: 0 auto; }
+[data-route]:not([hidden]) { display: block; }
+
+/* ── Home ── */
+#screen-home { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; gap: 16px; text-align: center; }
+#screen-home h1 { font-size: 2rem; color: var(--gold); }
+#screen-home input { background: var(--bg-card); border: 1px solid var(--accent); border-radius: var(--radius); padding: 10px 14px; color: var(--text); font-size: 1rem; width: 100%; max-width: 300px; }
+#screen-home input::placeholder { color: var(--text-muted); }
+
+/* ── Header (map + chapter + exercise) ── */
+.player-header { display: flex; align-items: center; gap: 10px; padding: 10px 0; margin-bottom: 16px; border-bottom: 1px solid var(--bg-card); }
+.player-header .name { font-weight: 700; }
+.player-header .title-label { color: var(--text-muted); font-size: 0.85rem; }
+.player-header .xp-label { margin-left: auto; color: var(--gold); font-size: 0.85rem; }
+
+/* ── Map ── */
+.map-path { display: flex; flex-direction: column; gap: 12px; }
+.map-node { display: flex; align-items: center; gap: 12px; background: var(--bg-card); border-radius: var(--radius); padding: 12px 16px; border: 2px solid transparent; cursor: pointer; transition: border-color 0.15s; }
+.map-node.active { border-color: var(--gold); }
+.map-node.complete { border-color: var(--success); opacity: 0.8; }
+.map-node.locked { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+.map-node .node-icon { font-size: 1.5rem; }
+.map-node .node-title { font-weight: 600; }
+.map-node .node-status { margin-left: auto; font-size: 0.9rem; }
+
+/* ── Chapter overview ── */
+.chapter-header { margin-bottom: 16px; }
+.chapter-header h2 { font-size: 1.4rem; color: var(--gold); }
+.chapter-lore { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
+.lesson-list { display: flex; flex-direction: column; gap: 8px; }
+.lesson-item { display: flex; align-items: center; gap: 10px; background: var(--bg-card); border-radius: var(--radius); padding: 12px; cursor: pointer; border: 1px solid transparent; }
+.lesson-item:hover { border-color: var(--accent); }
+.lesson-item.complete { border-color: var(--success); }
+.lesson-stars { margin-left: auto; color: var(--gold); }
+
+/* ── Exercise runner ── */
+.exercise-phase-bar { display: flex; gap: 6px; margin-bottom: 20px; }
+.phase-dot { flex: 1; height: 4px; background: var(--bg-card); border-radius: 2px; }
+.phase-dot.done { background: var(--success); }
+.phase-dot.active { background: var(--gold); }
+.exercise-area { min-height: 300px; }
